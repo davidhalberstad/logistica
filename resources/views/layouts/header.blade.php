@@ -7,8 +7,8 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
     </ul>
-    <ul class="nav navbar-nav" style="position: flex;text-align:center;">
-       <div ><h4>Dirección Logistica</h4></div>
+    <ul class="nav navbar-nav nabvar-text" style="text-align: center;" >
+      <h4 >Dirección Logistica</h4>
     </ul>
     <!-- Right navbar links -->
     <div class="collapse navbar-collapse top-right" id="app-navbar-collapse">
@@ -71,4 +71,12 @@
     right: 10px;
     top: 18px;
     }
+.nabvar-text {
+  position: absolute;
+  width: 100%;
+  left: 25%;
+  padding: 5px;
+  text-align: center;
+  z-index: 10;
+ }
 </style>
