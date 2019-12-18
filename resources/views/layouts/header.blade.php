@@ -7,9 +7,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
     </ul>
-    <ul class="nav navbar-nav nabvar-text" style="text-align: center;" >
-      <h4 >Dirección Logistica</h4>
-    </ul>
+
     <!-- Right navbar links -->
     <div class="collapse navbar-collapse top-right" id="app-navbar-collapse">
         <!-- Left Side Of Navbar -->
@@ -18,7 +16,7 @@
         <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
             @if (Auth::guest())
-                <li><a href="{{ url('/login') }}">Acceder</a></li>
+                <li><a href="{{ url('/login') }}">Ingresar</a></li>
                {{--  <li><a href="{{ url('/register') }}">Register</a></li> --}}
             @else
                 <li class="dropdown user user-menu">
@@ -71,12 +69,5 @@
     right: 10px;
     top: 18px;
     }
-.nabvar-text {
-  position: absolute;
-  width: 100%;
-  left: 25%;
-  padding: 5px;
-  text-align: center;
-  z-index: 10;
- }
+
 </style>
