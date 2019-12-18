@@ -39,9 +39,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini">
-   {{--  @guest  --}}
-       
- {{--    @else --}}
+   @guest 
+        @yield('content')
+    @else
         <div class="wrapper" id="app">
                 <!-- Header -->
             @include('layouts.header')
@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- ./wrapper -->
 
-{{--     @endguest  --}}
+    @endguest 
     @yield('javascript')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     @include('sweet::alert')

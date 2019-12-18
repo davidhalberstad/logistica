@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'HomeController@index')->name('inicio');
+Route::view('/', 'auth/login');
 
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
 
+	Route::get('/inicio', 'HomeController@index')->name('inicio');
 	
 	Route::group(['middleware' => ['auth']],function(){
 
