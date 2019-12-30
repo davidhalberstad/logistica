@@ -8,7 +8,7 @@
   <!-- Content Header (Page header) -->
 
   <!-- /.content-header -->
-  <title>@yield('titulo', 'Patrimonio') | Jefatura</title>
+  <title>@yield('titulo', 'Logistica') | Permisos</title>
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">

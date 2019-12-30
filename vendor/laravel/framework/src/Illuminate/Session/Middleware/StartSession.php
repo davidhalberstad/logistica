@@ -177,7 +177,8 @@ class StartSession
      */
     protected function getSessionLifetimeInSeconds()
     {
-        return ($this->manager->getSessionConfig()['lifetime'] ?? null) * 60;
+           return ($this->manager->getSessionConfig()['lifetime'] ?? null) * 60;
+        
     }
 
     /**

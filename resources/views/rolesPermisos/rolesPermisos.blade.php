@@ -6,7 +6,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <title>@yield('titulo', 'Patrimonio') | Jefatura</title>
+  <title>@yield('titulo', 'Logistica') | Roles & Permisos</title>
   <!-- /.content-header -->
 
   <!-- Main content -->

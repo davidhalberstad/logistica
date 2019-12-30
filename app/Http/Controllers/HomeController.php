@@ -15,22 +15,28 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
+use Session;
+use Config;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    }
     public function index(Request $Request)
     {    
+        if (Auth::User()->primer_logeo == null) {
+            return redirect('admin/primerIngreso');
+        }
+
+        if (strpos(Auth::User()->roles,'Suspendido')) {
+            Auth::logout();
+            alert()->error('Su usuario se encuentra suspendido');
+             return redirect('/login');
+        }
+
 
         $anios = vehiculo::select('anio_de_produccion')->orderBy('anio_de_produccion','asc')->get();
         $marca = vehiculo::select('marca')->orderBy('marca','asc')->get();

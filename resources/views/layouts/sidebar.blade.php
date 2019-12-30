@@ -1,4 +1,5 @@
-
+@if(Auth::User()->primer_logeo == null)
+@else
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -238,6 +239,7 @@
     </section>
     <!-- /.sidebar -->
 </aside>
+@endif
 <style type="text/css">
     .noPuntos{
         list-style:none;

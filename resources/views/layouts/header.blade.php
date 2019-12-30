@@ -1,4 +1,6 @@
-
+@if(Auth::User()->primer_logeo == null)
+<hr>
+@else
  <!-- Navbar -->
  <nav class="main-header navbar navbar-expand bg-dark navbar-light border-bottom">
     <!-- Left navbar links -->
@@ -59,7 +61,7 @@
             @endif
         </ul>
     </div>
-
+@endif
 </nav>
 
 <!-- /.navbar -->

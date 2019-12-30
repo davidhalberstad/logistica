@@ -9,7 +9,7 @@
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">
-    <title>@yield('titulo', 'Patrimonio') | Jefatura</title>
+    <title>@yield('titulo', 'Logistica') | Inicio</title>
       <div class="row" style="padding-top: 5px;">
         <div class="col-12">
           <hr>
