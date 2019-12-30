@@ -10,31 +10,75 @@
   <div class="content">
     <div class="container-fluid">
     <title>@yield('titulo', 'Logistica') | Inicio</title>
+    @if(strpos(Auth::User()->roles,'Suspendido'))
+      <div class="row ">
+        <div class="card col-sm-12">
+          <div class="card-body">
+            <h4 class="card-title">Su usuario se encuentra suspendido, contacte con un administrador</h4> 
+            <br>
+          </div>
+        </div>
+      </div>
+    @else
+    @if(strpos(Auth::User()->roles,'Sin Rol'))
+      <div class="row">
+        <div class="card col-sm-12">
+          <div class="card-body">
+            <h4 class="card-title">Su usuario no posee permisos, contacte con un administrador</h4> 
+            <br>
+          </div>
+        </div>
+      </div>
+    @else
       <div class="row" style="padding-top: 5px;">
         <div class="col-12">
-          <hr>
-          <div class="card col-12">
-            <div class="card-header">
-              <strong><u>Inicio</u></strong>
-            </div>
 
-            <div class="card-body">
-              <div class="row">
-                <form model="" class="navbar-form navbar-left col-12" role="search">
-                  <div class="form-group busqueda col-12">
-                    <label>Ingrese numero de identificacion interna o dominio</label>
-                    <input type="text" name="vehiculoBuscado" class="form-control " placeholder="numero de identificacion o patente">
+              <hr>
+              <div class="card">
+                <div class="card-header">
+                  <strong><u>Inicio</u></strong>
+                </div>
+
+                <div class="card-body">
+                  <div class="row">
+                    <form model="" class="navbar-form navbar-left pull-right" role="search">
+                      <div class="row">
+
+                        <div class="form-group busqueda ">
+                          <input type="text" name="vehiculoBuscado" class="form-control" placeholder="numero de identificacion">
+                        </div>
+                       <div class="form-group busqueda ">
+                          <select  id="id_marca" name="marcas" class="form-control ">
+                            <option value="" selected="">Seleccione una marca</option>
+                            @foreach ($marca as $item)
+                              <option value="{{ $item->marca }}">{{ $item->marca }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group busqueda" >
+                          <select name="anio" id="id_anio"  class="form-control ">
+                            <option value="" selected="">Seleccione un año</option>
+                            @foreach ($anios as $item)
+                              <option value="{{ $item->anio_de_produccion }}">{{ $item->anio_de_produccion }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group busqueda">
+                          <select name="id_tipo_vehiculo_lista"  class="form-control">
+                            <option value="" selected="">Seleccione un tipo de vehiculo</option>
+                            @foreach ($tipo_vehiculo as $item)
+                              <option value="{{ $item->id_tipo_vehiculo }}">{{ $item->nombre_tipo_vehiculo }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                         
+                      </div>
+                        <div class="form-group busqueda">
+                           <button type="submit" id="btnBuscar" class="btn btn-info col-md-2 d-inline left"> <i class="fa fa-search-plus"> Buscar </i></button> 
+                            <button class="btn btn-warning col-md-2 d-inline" style="padding: 5px;" id="limpiar"> <i class="fa fa-paint-brush"> Limpiar</i> </button>
+                        </div>
+                    </form>
                   </div>
-                  <div class="form-group busqueda col-12">
-                    <button type="submit" id="btnBuscar"  style="padding: 5px;" class="btn btn-info  d-inline left"> 
-                      <i class="fa fa-search-plus"> Buscar </i>
-                    </button> 
-                    <button class="btn btn-warning  d-inline" style="padding: 5px;" id="limpiar"> 
-                      <i class="fa fa-paint-brush"> Limpiar</i> 
-                    </button>
-                  </div>
-                </form>
-              </div>
                   <div class="row table-responsive ">
                     @if(isset($vehiculoBuscado))
                         <table tableStyle="width:auto" id="tablaResultado" class="table table-striped table-hover table-sm table-condensed table-bordered">
@@ -89,7 +133,8 @@
         {{-- col 12 --}}
         </div>
       {{-- row --}}
-
+      @endif
+    @endif
       </div>
     {{-- fluid --}}
     </div>
