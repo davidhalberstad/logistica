@@ -43,6 +43,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'vehiculos.editarSiniestro']);
         Permission::create(['name' => 'vehiculos.eliminarSiniestro']);
 
+        Permission::create(['name' => 'vehiculos.parteSemanal']);
+        Permission::create(['name' => 'vehiculos.nuevoParte']);
+        Permission::create(['name' => 'vehiculos.parteIndividualEliminar']);
+        Permission::create(['name' => 'vehiculos.editarParte']);
+
         Permission::create(['name' => 'vehiculos.repuestos']);
         Permission::create(['name' => 'vehiculos.crearRepuestos']);
         Permission::create(['name' => 'vehiculos.descargarPDFRepuesto']);
@@ -66,6 +71,7 @@ class PermissionsTableSeeder extends Seeder
         $sinRol = Role::create(['name' => 'Sin Rol']);
         $Admin = Role::create(['name' => 'Admin']);
         $cargarVehiculos = Role::create(['name' => 'Cargar Vehiculos']);
+        $Logistica = Role::create(['name' => 'Logistica']);
 
         //asignamos los permisos a los roles
         $SuperAdmin->givePermissionTo([
@@ -86,6 +92,13 @@ class PermissionsTableSeeder extends Seeder
             'vehiculos.altaSiniestro',
             'vehiculos.editarSiniestro',
             'vehiculos.eliminarSiniestro',
+
+            'vehiculos.parteSemanal',
+            'vehiculos.nuevoParte',
+            'vehiculos.parteIndividualEliminar',
+            'vehiculos.parteSemanalImprimir',
+            'vehiculos.editarParte',
+            
 
             'vehiculos.repuestos',
             'vehiculos.crearRepuestos',
@@ -136,6 +149,12 @@ class PermissionsTableSeeder extends Seeder
             'usuarios.eliminarUsuario',
             'usuarios.resetPassword',
 
+            'vehiculos.parteSemanal',
+            'vehiculos.nuevoParte',
+            'vehiculos.parteIndividualEliminar',
+            'vehiculos.parteSemanalImprimir',
+            'vehiculos.editarParte',
+            
             'dependencias.dependencias',
             'dependencias.editarDependencia',
             'dependencias.eliminarDepencencia',
@@ -164,6 +183,20 @@ class PermissionsTableSeeder extends Seeder
             'vehiculos.repuestos',
             'vehiculos.crearRepuestos',
             'vehiculos.descargarPDFRepuesto',
+            
+            'estados.altaEstado'
+        ]);
+
+        $Logistica->givePermissionTo([
+            'vehiculos.index',
+            'vehiculos.informacion',
+            'vehiculos.graficos',
+            
+            'vehiculos.parteSemanal',
+            'vehiculos.nuevoParte',
+            'vehiculos.parteIndividualEliminar',
+            'vehiculos.parteSemanalImprimir',
+            'vehiculos.editarParte',
             
             'estados.altaEstado'
         ]);

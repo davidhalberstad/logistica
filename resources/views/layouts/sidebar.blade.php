@@ -12,16 +12,16 @@
     <!-- Sidebar -->
     <section class="sidebar">
         <!-- Sidebar user panel (optional) -->
-{{--         @if(Auth::User())
+{{--         @if(Auth::User()) --}}
 
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"> {{auth()->user()->nombre!=null ? auth()->user()->nombre : "Invitado"}} </a>
+                <p style="color: white;" class="d-block">{{auth()->user()->nombre!=null ? auth()->user()->nombre : "Invitado"}}</p>
             </div>
-        </div> --}}
+        </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 @can('usuarios.listaUsuarios')
-                <li class="nav-item has-treeview {{ request()->is('admin/permisos*') ? 'menu-open' : '' }}  {{ request()->is('admin/usuarios*') ? 'menu-open' : '' }} {{ request()->is('admin/roles*') ? 'menu-open' : '' }} {{ request()->is('admin/users*') ? 'menu-open' : '' }}">
+                <li class="nav-item has-treeview {{ request()->is('permisos*') ? 'menu-open' : '' }}  {{ request()->is('usuarios*') ? 'menu-open' : '' }} {{ request()->is('roles*') ? 'menu-open' : '' }} {{ request()->is('users*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
@@ -91,20 +91,17 @@
                     </ul>
                     @endcan
                 </li>
-
-                @can('dependencias.dependencias')
+                @can('vehiculos.parteSemanal')
                 <li class="nav-item has-treeview">
-                    <a href="{{ route('indexDependencia') }}" class="nav-link">
-                        <i class="nav-icon fa fa-codepen"></i>
-                        <p>
-                          Dependencias
-                        </p>
+                    <a href="{{route('idexParteSemanal')}}" class="nav-link">
+                        <i class="fa fa-align-right nav-icon"></i>
+                        <p>Parte Semanal</p>
                     </a>
                 </li>
                 @endcan
                 @can('vehiculos.index')
                 {{-- con el request->is nos sirve para mantener abierto el menu si es que estamos en el menu propiamente dicho --}}
-                <li class="nav-item has-treeview  {{ request()->is('admin/reportes*') ? 'menu-open' : '' }} {{ request()->is('admin/repuestos*') ? 'menu-open' : '' }} {{ request()->is('admin/detalleVehiculo*') ? 'menu-open' : '' }} {{ request()->is('admin/siniestros*') ? 'menu-open' : '' }} {{ request()->is('admin/asignacion*') ? 'menu-open' : '' }} {{ request()->is('admin/historial_completo*') ? 'menu-open' : '' }}  {{ request()->is('admin/baja_definitiva*') ? 'menu-open' : '' }}  {{ request()->is('admin/fuera_de_servicio*') ? 'menu-open' : '' }}  {{ request()->is('admin/alta_vehiculos*') ? 'menu-open' : '' }} {{ request()->is('admin/tipo_vehiculos*') ? 'menu-open' : '' }}  ">
+                <li class="nav-item has-treeview   {{ request()->is('detalleVehiculo*') ? 'menu-open' : '' }}   {{ request()->is('asignacion*') ? 'menu-open' : '' }} {{ request()->is('historial-completo*') ? 'menu-open' : '' }}  {{ request()->is('baja-definitiva*') ? 'menu-open' : '' }}  {{ request()->is('fuera-de-servicio*') ? 'menu-open' : '' }}  {{ request()->is('alta-vehiculos*') ? 'menu-open' : '' }} {{ request()->is('tipo-vehiculos*') ? 'menu-open' : '' }}  ">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-car"></i>
                         <p>
@@ -121,20 +118,9 @@
                                 </a>
                             </li>
                         </ul>
-  
-
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('listaTipoVehiculos') }}" class="nav-link">
-                            <i class="nav-icon fa fa-asterisk"></i>
-                            <p>
-                              Tipo de vehiculos
-                 
-                            </p>
-                        </a>
-                    </li>
                     @endcan
                     @can('vehiculos.eliminar')
-                    <li class="nav-item has-treeview {{ request()->is('admin/historial_completo*') ? 'menu-open' : '' }}  {{ request()->is('admin/baja_definitiva*') ? 'menu-open' : '' }}  {{ request()->is('admin/fuera_de_servicio*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('historial-completo*') ? 'menu-open' : '' }}  {{ request()->is('baja-definitiva*') ? 'menu-open' : '' }}  {{ request()->is('fuera-de-servicio*') ? 'menu-open' : '' }}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-times"></i>
                             <p>
@@ -187,17 +173,6 @@
                             </p>
                         </a>
                     </li> 
-                    @endcan
-                    @can('vehiculos.siniestros')
-                    <li class="nav-item has-treeview" id="pie">
-                         <a href="{{ route('indexSiniestros') }}" class="nav-link">
-                            <i class="nav-icon fa fa-road"></i>
-                            <p>
-                              Siniestros
-           
-                            </p>
-                        </a>
-                    </li>
                     @endcan
                     @can('vehiculos.informacion')
                     <li class="nav-item has-treeview" id="pie">

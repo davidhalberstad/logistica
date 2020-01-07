@@ -294,7 +294,6 @@
 
 
   function editarVehiculo(item){
-    console.log(item)
     var numero_de_identificacion = $('#id_numero_de_identificacion_modificacion').val(item.numero_de_identificacion),
         fecha = $('#id_vehiculo_modificacion').val(item.id_vehiculo),
         fecha = $('#id_fecha_modificacion').val(item.fecha),
