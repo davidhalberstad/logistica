@@ -98,7 +98,7 @@ class VehiculoController extends Controller
         	$VehiculosListados = $this->paginar($VehiculosListados);
 
         }
-         return view('vehiculos.altas.alta_vehiculos',compact('tipo_vehiculo','VehiculosListados','existe'));
+         return view('vehiculos.altas.alta_vehiculos',compact('tipo_vehiculo','VehiculosListados'));
     }
 
 
