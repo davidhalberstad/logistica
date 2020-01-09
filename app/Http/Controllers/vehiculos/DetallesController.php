@@ -105,6 +105,10 @@ class DetallesController extends Controller
         if ($id == null && $Request->vehiculoBuscado == null) {
         	$existe = 0;
             $VehiculosListados = 0;
+            $asignacion_actual = 0;
+            $imagenes_vehiculo = 0;
+            $historial = 0;
+            $siniestros = 0;
         }elseif($id != null && $Request->vehiculoBuscado == null){
 
         	$existe = 1;
