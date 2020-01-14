@@ -90,47 +90,7 @@
       {{-- row --}}
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            
-            <div class="card-header">
-              <h3 class="card-title">Buscar graficas de siniestros por año</h3>
-              <div class="card-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                @csrf
-                <div class="input-group-prepend pull-left">
-                  <span class="input-group-text fa fa-search" id="basic-addon1"></span>
-                  <input type="number" id="anio" name="anio" class="form-control " placeholder="ingrese año" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <button class="submit btn btn-default col-md-2 d-inline" onclick="filtroAnio();">Buscar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            
-            <div class="card-header">
-              <h3 class="card-title">Grafica de siniestros</h3>
-              <div class="card-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="panel panel-success" id="modalopen"></div>
-            </div>
-          </div>
-        </div>
+      
         
       </div>
     {{-- fluid --}}

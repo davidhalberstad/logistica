@@ -102,72 +102,8 @@
     </div>
     <hr>
 
-    <div class="box box-danger col-md-12">
-      <div class="box-header with-border">
-        <i class="fa fa-bar-chart-o"></i>
-        <h3 class="box-title">Buscar graficas de siniestros por año</h3>
-        <div class="form-group">
-          @csrf
-            <div class="input-group-prepend pull-left">
-              <span class="input-group-text fa fa-search" id="basic-addon1"></span>
-            <input type="text" id="anio" name="anio" class="form-control" placeholder="ingrese año" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-          <button class="submit btn btn-default" onclick="filtroAnio();">Buscar</button>
-          
-        </div>
-        {{--  <form action="{{ url('admin/reportesFiltro') }}" class="form-group" method="POST" enctype="multipart/form-data"> --}}
-        
-{{--         </form> --}}
-      </div>
-    </div>
-    <div class="box box-danger col-md-12">
-      <div class="box-header with-border">
-        <i class="fa fa-bar-chart-o"></i>
-        <h3 class="box-title">Grafica de siniestros</h3>
-        <div>
-          
-        </div>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-        </div>
-      </div>
-      <div class="box-body">
-       {{--  <canvas id="graficoSiniestro"></canvas> --}}
-        <div class="panel panel-success" id="modalopen"></div>
-        <div>
-          <hr>
-          {{-- <table class=" table table-striped table-hover table-condensed table-bordered">
-            <thead>
-              <tr>
-                <th>Total de vehiculos</th>
-                <th>Baja Total</th>
-                <th>En Reparación</th>
-                <th>Total de vehiculos disponibles</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($total_vehiculos_reparacion as $item)
-                <tr>
-                  <td>{{ $item->Total }}</td>
-                  <td>{{ $item->totalbaja }}</td>
-                  <td>{{ $item->totalreparacion }}</td>
-                  <td>{{ $item->Total - ($item->totalreparacion+$item->totalbaja) }}</td>
-                <tr>
-              @endforeach
-                <td></td>
-              </tr>
-            </tbody>
-          </table> --}}
-        </div>
-      </div>
-      <div>
-        
-      </div>
-      <!-- /.box-body -->
-    </div>
 
-  </div>
+
 </div>
    @csrf
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
