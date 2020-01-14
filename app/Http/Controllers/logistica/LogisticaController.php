@@ -72,7 +72,7 @@ class LogisticaController extends Controller
                                             ->join('vehiculos','vehiculos.id_vehiculo','=','parte_semanal.id_vehiculo')
                                             ->join('users','users.id','=','parte_semanal.id_usuario')
                                             ->whereBetween('parte_semanal.created_at',[$Request->desde.' 00:00:00',date("Y-m-d 23:59:59")])
-                                            ->select('dependencias.nombre_dependencia','vehiculos.marca','vehiculos.numero_de_identificacion','parte_semanal.created_at','parte_semanal.observaciones_parte','users.nombre','vehiculos.dominio','vehiculos.id_vehiculo','parte_semanal.id_parte_semanal')
+                                             ->select('dependencias.nombre_dependencia','vehiculos.marca','vehiculos.numero_de_identificacion','parte_semanal.created_at','parte_semanal.observaciones_parte','users.nombre','vehiculos.dominio','vehiculos.id_vehiculo','parte_semanal.id_parte_semanal')
                                             ->orderBy('parte_semanal.id_parte_semanal','desc')
                                             ->get();
 		}else if($Request->vehiculoBuscado != null && ($Request->desde && $Request->hasta) == null){
@@ -81,7 +81,7 @@ class LogisticaController extends Controller
                                             ->join('users','users.id','=','parte_semanal.id_usuario')
                                             ->where('vehiculos.numero_de_identificacion',$Request->vehiculoBuscado)
                                             ->orwhere('vehiculos.dominio',$Request->vehiculoBuscado)
-                                            ->select('dependencias.nombre_dependencia','nombre.marca','vehiculos.numero_de_identificacion','parte_semanal.created_at','parte_semanal.observaciones_parte','users.usuario','vehiculos.dominio','vehiculos.id_vehiculo','parte_semanal.id_parte_semanal')
+                                            ->select('dependencias.nombre_dependencia','vehiculos.marca','vehiculos.numero_de_identificacion','parte_semanal.created_at','parte_semanal.observaciones_parte','users.nombre','vehiculos.dominio','vehiculos.id_vehiculo','parte_semanal.id_parte_semanal')
                                             ->orderBy('parte_semanal.id_parte_semanal','desc')
                                             ->get();
 		}else{

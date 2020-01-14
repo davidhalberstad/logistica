@@ -23,7 +23,7 @@ class PermissionsTableSeeder extends Seeder
         // Clear cache
 /*        app()[PermissionRegistrar::class]->forgetCachedPermissions();*/
 
-		Permission::create(['name' => 'vehiculos.index']);
+		/*Permission::create(['name' => 'vehiculos.index']);
         Permission::create(['name' => 'vehiculos.crear']);
         Permission::create(['name' => 'vehiculos.editar']);
         Permission::create(['name' => 'vehiculos.eliminar']);
@@ -41,13 +41,13 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'vehiculos.siniestros']);
         Permission::create(['name' => 'vehiculos.altaSiniestro']);
         Permission::create(['name' => 'vehiculos.editarSiniestro']);
-        Permission::create(['name' => 'vehiculos.eliminarSiniestro']);
+        Permission::create(['name' => 'vehiculos.eliminarSiniestro']);*/
 
         Permission::create(['name' => 'vehiculos.parteSemanal']);
         Permission::create(['name' => 'vehiculos.nuevoParte']);
         Permission::create(['name' => 'vehiculos.parteIndividualEliminar']);
         Permission::create(['name' => 'vehiculos.editarParte']);
-
+/*
         Permission::create(['name' => 'vehiculos.repuestos']);
         Permission::create(['name' => 'vehiculos.crearRepuestos']);
         Permission::create(['name' => 'vehiculos.descargarPDFRepuesto']);
@@ -64,7 +64,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'dependencias.editarDependencia']);
         Permission::create(['name' => 'dependencias.eliminarDepencencia']);
 
-        Permission::create(['name' => 'estados.altaEstado']);
+        Permission::create(['name' => 'estados.altaEstado']);*/
 
         //creamos los roles
      	$SuperAdmin = Role::create(['name' => 'Super Admin']);
