@@ -169,59 +169,7 @@
             </div>
           </div>
         </div>
-        <div class="row table-responsive ">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Siniestros</h4> 
-              <br>
-              @if(count($siniestros) >0)
-                    <table tableStyle="width:auto" class="table table-striped table-hover table-sm table-condensed table-bordered">
-                      <thead>
-                        <tr>
-                          <th>N° Identificación</th>
-                          <th>Afectado</th>
-                          <th>Lugar</th>
-                          <th>Fecha</th>
-                          <th>Lesiones</th>
-                          <th>Colision</th>
-                          <th>Presentación</th>
-                          <th>Observaciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach($siniestros as $item)
-                        
-                          <tr>
-                            <td>{{ $item->numero_de_identificacion }}</td>
-                            <td>{{ $item->nombre_dependencia }}</td>
-                            <td>{{ substr($item->lugar_siniestro ,0,10) }}...<a href="" onclick="detalle('{{ $item->lugar_siniestro }}')" data-toggle="modal" data-target="#modalDetalleLugar">ver mas</a>
-                            </td>
 
-                            <td>{{ date('d-m-Y', strtotime($item->fecha_siniestro)) }}</td>
-                            @if($item->lesiones_siniestro == 1)
-                              <td><label class="badge badge-danger">Si</label></td>
-                            @else
-                              <td><label class="badge badge-success">No</label></td>
-                            @endif
-                            <td>{{ substr($item->descripcion_siniestro,0,10) }}...<a href="" onclick="detalle('{{ $item->descripcion_siniestro }}')" data-toggle="modal" data-target="#modalDetalleDesc">ver mas</a>
-                            </td>
-
-                            <td>{{ date('d-m-Y', strtotime($item->fecha_presentacion)) }}</td>
-                            <td>{{ substr($item->observaciones_siniestro,0,10) }}...<a href="" onclick="detalle('{{ $item->observaciones_siniestro }}')" data-toggle="modal" data-target="#modalDetalleObs">ver mas</a>
-                            </td>
-                          </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
-                  <div class="row">
-                    {{ $siniestros->appends(Request::all())->links() }}
-                  </div>
-              @else
-                <p>no posee</p>
-              @endif
-            </div>
-          </div>
-        </div>
 
         <div class="row">
           <div class="card col-sm-12">
