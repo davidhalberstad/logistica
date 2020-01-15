@@ -54,6 +54,12 @@ class RepuestoController extends Controller
         if (Auth::User()->primer_logeo == null) {
             return redirect('primerIngreso');
         }
+        
+        if (strpos(Auth::User()->roles,'Suspendido')) {
+            Auth::logout();
+            alert()->error('Su usuario se encuentra suspendido');
+             return redirect('/login');
+        }
         if ($Request->vehiculoBuscado == null) {
       		$repuestos = repuesto::join('vehiculos','vehiculos.id_vehiculo','=','detalle_asignacion_repuestos.id_vehiculo')
       							->join('users','users.id','=','detalle_asignacion_repuestos.id_responsable')

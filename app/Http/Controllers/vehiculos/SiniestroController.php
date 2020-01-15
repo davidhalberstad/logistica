@@ -60,7 +60,11 @@ class SiniestroController extends Controller
         if (Auth::User()->primer_logeo == null) {
             return redirect('primerIngreso');
         }
-
+        if (strpos(Auth::User()->roles,'Suspendido')) {
+            Auth::logout();
+            alert()->error('Su usuario se encuentra suspendido');
+             return redirect('/login');
+        }
         if ($Request->vehiculoBuscado == null) {
             
         	$siniestros = siniestro::join('vehiculos','vehiculos.id_vehiculo','=','siniestros.id_vehiculo')
