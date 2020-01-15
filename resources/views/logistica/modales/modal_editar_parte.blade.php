@@ -3,7 +3,7 @@
       <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content col-md-12">
               <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Editar Parte</h4>
+                  <h4 class="modal-title" id="myModalLabel">Estas seguro de editar este parte?</h4>
               </div>
               @if(!$errors->isEmpty())
               <div class="alert alert-danger">

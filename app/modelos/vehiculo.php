@@ -18,6 +18,8 @@ class vehiculo extends Model
     		return $query->where('numero_de_identificacion','ilike','%'.$identificacion.'%')
     					->orWhere('dominio','ilike','%'.$identificacion.'%')
     					->orWhere('marca','ilike','%'.$identificacion.'%')
+                        ->orWhere('motor','ilike','%'.$identificacion.'%')
+                        ->orWhere('chasis','ilike','%'.$identificacion.'%')
     					->orWhere('modelo','ilike','%'.$identificacion.'%')
     					->orWhere('numero_de_inventario','ilike','%'.$identificacion.'%')
     					/*->orWhere('tipo','ilike',$identificacion)*/
