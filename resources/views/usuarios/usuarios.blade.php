@@ -37,6 +37,7 @@
                 @extends('usuarios/modales/modal_asignar_rol')
                 @extends('usuarios/modales/modal_baja_usuario')
                 @extends('usuarios/modales/modal_nuevo_usuario')
+                @extends('usuarios/modales/modal_reset_password')
                 
               </div>
 
@@ -92,7 +93,8 @@
                                   <button  onclick="eliminarUsuario({{ $item }});" title="Eliminar Usuario"  class=" btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                 @endcan
                                 @can('usuarios.resetPassword')
-                                  <a class="btn btn-secondary btn-sm" href="{{ route('resetPassword',$item->id) }}"><i class="fa fa-undo"></i></a>
+                                  <button  onclick="resetPassword({{ $item }});" title="Resetear Password"  class=" btn btn-secondary btn-sm"><i class="fa fa-undo"></i></button>
+                                  {{-- <a class="btn btn-secondary btn-sm" href="{{ route('resetPassword',$item->id) }}"><i class="fa fa-undo"></i></a> --}}
                                 @endcan
                               @endif
                             </td>
@@ -120,7 +122,8 @@
                                   <button  onclick="eliminarUsuario({{ $item }});" title="Eliminar Usuario"  class=" btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                 @endcan
                                 @can('usuarios.resetPassword')
-                                  <a class="btn btn-secondary btn-sm" href="{{ route('resetPassword',$item->id) }}"><i class="fa fa-undo"></i></a>
+                                  <button  onclick="resetPassword({{ $item }});" title="Resetear Password"  class=" btn btn-secondary btn-sm"><i class="fa fa-undo"></i></button>
+                                  {{-- <a class="btn btn-secondary btn-sm" href="{{ route('resetPassword',$item->id) }}"><i class="fa fa-undo"></i></a> --}}
                                 @endcan
                               @endif
                             </td>
@@ -178,6 +181,14 @@
         apellido_nombre = $('#id_nombre_apellido').val(item.nombre),
         usuario_movimiento = $('#id_nombre_usuario').val(item.usuario);
     $('#modalBajaUsuario').modal('show');
+  }
+
+  function resetPassword(item){
+
+    var id_usuario_baja = $('#id_usuario_reset').val(item.id),
+        apellido_nombre = $('#id_nombre_apellido_reset').val(item.nombre),
+        usuario_movimiento = $('#id_nombre_usuario_reset').val(item.usuario);
+    $('#modalResetUsuario').modal('show');
   }
 </script>
 

@@ -45,7 +45,9 @@ class HomeController extends Controller
         if ($Request->vehiculoBuscado != null && ($Request->marca && $Request->anio && $Request->id_tipo_vehiculo_lista) == null) {
 
             $vehiculoBuscado = vehiculo::where('dominio','ilike','%'.$Request->vehiculoBuscado.'%')
-                                        ->orwhere('numero_de_identificacion','ilike','%'.$Request->vehiculoBuscado.'%')->get();
+                                        ->orwhere('numero_de_identificacion','ilike','%'.$Request->vehiculoBuscado.'%')
+                                        ->orwhere('chasis','ilike','%'.$Request->vehiculoBuscado.'%')
+                                        ->get();
 
             return view('welcome',compact('marca','anios','tipo_vehiculo','vehiculoBuscado'));
 

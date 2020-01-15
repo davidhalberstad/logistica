@@ -74,7 +74,7 @@ class UsuarioController extends Controller
 	public function index(Request $Request){
 
 		if (Auth::User()->primer_logeo == null) {
-            return redirect('admin/primerIngreso');
+            return redirect('primerIngreso');
         }
         if (strpos(Auth::User()->roles,'Suspendido')) {
             Auth::logout();
@@ -166,8 +166,9 @@ class UsuarioController extends Controller
         }
 	}
 
-	public function resetPassword($id){
-		$usuarios = User::findorfail($id);
+	public function resetPassword(Request $Request){
+
+		$usuarios = User::findorfail($Request->id_usuario);
 		$usuarios->password = 'informatica2019++';
 		$usuarios->primer_logeo = null;
 		//return $usuarios;

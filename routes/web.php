@@ -31,7 +31,8 @@ Auth::routes();
 		Route::post('usuarios', 'UsuarioController@asignarRol')->name('agregarRol');//->middleware('permiso:usuarios.asignarRol');
 	/*	Route::post('eliminarUsuarios','UsuarioController@eliminarUsuario')->name('eliminarUsuario');*/
 		Route::post('editarUsuario','UsuarioController@eliminarUsuario')->name('eliminarUsuario');
-		Route::get('resetPassword/{id}','UsuarioController@resetPassword')->name('resetPassword')->middleware('permiso:usuarios.resetPassword');
+
+		Route::post('resetPassword','UsuarioController@resetPassword')->name('resetPassword')->middleware('permiso:usuarios.resetPassword');
 
 		Route::post('altaUsuario','UsuarioController@registroUsuario')->name('registroUsuario');
 		//primer cambio
