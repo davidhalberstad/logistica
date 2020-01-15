@@ -120,7 +120,7 @@ class DetallesController extends Controller
 
         }elseif( $Request->vehiculoBuscado != null && $id == null){
 
-            $vehiculo = \DB::select("select id_vehiculo from vehiculos where numero_de_identificacion = '".$Request->vehiculoBuscado."' or dominio = '".$Request->vehiculoBuscado."'");
+            $vehiculo = \DB::select("select id_vehiculo from vehiculos where numero_de_identificacion = '".$Request->vehiculoBuscado."' or dominio = '".$Request->vehiculoBuscado."' or chasis = '".$Request->vehiculoBuscado."'");
 
             if (count($vehiculo)>0) {
                 $existe = 1;
