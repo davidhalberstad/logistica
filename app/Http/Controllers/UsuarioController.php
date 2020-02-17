@@ -73,8 +73,8 @@ class UsuarioController extends Controller
     }
 	public function index(Request $Request){
 
-		if (Auth::User()->primer_logeo == null) {
-            return redirect('primerIngreso');
+        if (Auth::User()->primer_logeo == null) {
+            return redirect('/primerIngreso');
         }
         if (strpos(Auth::User()->roles,'Suspendido')) {
             Auth::logout();
@@ -166,9 +166,8 @@ class UsuarioController extends Controller
         }
 	}
 
-	public function resetPassword(Request $Request){
-
-		$usuarios = User::findorfail($Request->id_usuario);
+	public function resetPassword($id){
+		$usuarios = User::findorfail($id);
 		$usuarios->password = 'informatica2019++';
 		$usuarios->primer_logeo = null;
 		//return $usuarios;
@@ -185,7 +184,6 @@ class UsuarioController extends Controller
 		//return $Request;
         $Validar = \Validator::make($Request->all(), [
             
-            'apellidoynombre' => 'required',
             'usuario' => 'required|unique:users',
         ]);
         if ($Validar->fails()){
@@ -195,12 +193,28 @@ class UsuarioController extends Controller
 
         $nuevoUsuario = new User;
 
-        $nuevoUsuario->nombre = $Request->apellidoynombre;
-        $nuevoUsuario->usuario = $Request->usuario;
+        
+        $nuevoUsuario->usuario = 'pol'.$Request->usuario;
         $nuevoUsuario->imagen_perfil = 'avatar_default.png';
         $passwordNueva = 'informatica2019++';
 
         $nuevoUsuario->password = $passwordNueva;
+
+        /*prueba*/
+
+        $url = "http://sistemas.policiamisiones.gob.ar:8081/api/revistas.php?revista=".$Request->usuario;
+        $json = @file_get_contents($url);
+        $obj = json_decode($json, true);
+        $foto = $obj[0]["foto"]; //Muesto Fotografia
+        $jerarquia =  $obj[0]["jerarquia"];
+        $nombre =  $obj[0]["nombres"];
+        $apellido =  $obj[0]["apellido"];
+      //  $url = "http://sistemas.policiamisiones.gob.ar:8081/api/revistas.php?revista=16043";
+        $nuevoUsuario->nombre = $apellido.' '.$nombre;
+     // dd($nuevoUsuario);
+
+
+
 
         if ($nuevoUsuario->save()) {
         	$nuevoUsuario->syncRoles('Sin Rol');
@@ -210,6 +224,17 @@ class UsuarioController extends Controller
         }
 
 	}
+
+    public function jerarquia(Request $Request){
+
+        $url = "http://sistemas.policiamisiones.gob.ar:8081/api/revistas.php?revista=".$Request->Revista;
+        $json = @file_get_contents($url);
+        $obj = json_decode($json, true);
+        $jerarquia[1] = $obj[0]["foto"]; //Muesto Fotografia
+        $jerarquia[0] =  $obj[0]["jerarquia"];
+        return $jerarquia;
+
+    }
 	public function primerPassword(){
 
 		return view('auth.primer_password');

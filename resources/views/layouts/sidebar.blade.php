@@ -3,23 +3,26 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('inicio') }}" class="brand-link">
-        <img src="/img/logo.png" alt="Laravel Starter" class="brand-image img-circle elevation-3"
-       style="opacity: .8">
-        <span class="brand-text font-weight-light">Logistica</span>
-    </a>
+    <div class="sidebar-header">
+        <!-- Brand Logo -->
+        <a href="{{ route('inicio') }}" class="brand-link">
+            <img src="/img/logo.png" alt="Laravel Starter" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+            <span class="brand-text font-weight-light">Logistica</span>
+        </a>
+
+    </div>
 
     <!-- Sidebar -->
-    <section class="sidebar">
+    <section class="sidebar" >
         <!-- Sidebar user panel (optional) -->
-{{--         @if(Auth::User()) --}}
-
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="/img/profile.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <p style="color: white;" class="d-block">{{auth()->user()->nombre!=null ? auth()->user()->nombre : "Invitado"}}</p>
+                <p class="textoBlanco">{{Auth::User()->nombre}}</p>
+                <a href="#" id="id_jerarquia" class="d-block"> </a>
             </div>
         </div>
 
@@ -219,4 +222,51 @@
     .noPuntos{
         list-style:none;
     } 
+
+    .sidebar {
+      position: fixed;
+      bottom: 0;
+
+      width: 250px;
+
+    }
+    .sidebar_item:last-child {
+      overflow-y:auto;
+      height: calc( 100% - 215px);
+    }
+    .sidebar::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background: #ff9d00;
+        border-radius: 5px;
+    }
+    .textoBlanco{
+        color:#FFF;
+    }
 </style>
+
+
+<script src="/dist/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var csrftoken = $('meta[name=csrf-token]').attr('content');
+        $.ajax({
+          type:"post",
+          url:'{{route('jerarquia')}}',
+
+          data:{
+            '_token':csrftoken,
+            'Revista':{{substr(Auth::User()->usuario,3)}} },
+
+          success: function(data){
+        
+            $("#id_jerarquia").text(data[0])
+            
+          },error:function(data){
+            console.log( 'Error al agregar el articulo', data );
+          }
+        });
+    });
+</script>

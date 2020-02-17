@@ -33,7 +33,7 @@ Auth::routes();
 		Route::post('editarUsuario','UsuarioController@eliminarUsuario')->name('eliminarUsuario');
 
 		Route::post('resetPassword','UsuarioController@resetPassword')->name('resetPassword')->middleware('permiso:usuarios.resetPassword');
-
+		Route::post('apiJerarquia','UsuarioController@jerarquia')->name('jerarquia');
 		Route::post('altaUsuario','UsuarioController@registroUsuario')->name('registroUsuario');
 		//primer cambio
 		Route::get('primerIngreso','UsuarioController@primerPassword')->name('primerPassword');

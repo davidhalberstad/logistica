@@ -19,7 +19,7 @@
                   @csrf
                   <div class="row">
                     <div class="form-group col-md-12">
-                        <label>Seleccione Vehiculo</label>
+                        <label title="Ingrese numero de identificacion, ejemplo, 3-720 o ingrese el dominio o patente AB123AA">Seleccione Vehiculo</label>
                         <div id="select">
                             <select type="text" class="form-control" id="id_vehiculo_select2" value="{{ old('id_vehiculo') }}" data-width="100%" name="id_vehiculo">
                             </select>
@@ -27,8 +27,8 @@
                     </div>
                   </div>
                   <div class="form-group col-md-12">
-                      <label for="">Observaciones</label>
-                      <textarea type="text" name="observaciones" autocomplete="off" maxlength="200"  placeholder="Observaciones" class="form-control" required value="{{ old('observaciones') }}"></textarea>
+                      <label title="Ingrese el nuevo detalle del partea">Detalle del parte</label>
+                      <textarea type="text" name="observaciones" autocomplete="off" maxlength="200"  placeholder="Nuevo parte semanal" class="form-control" required value="{{ old('observaciones') }}"></textarea>
                   </div>
 
                   <div class="col-md-12 modal-footer" style="position:relative;">

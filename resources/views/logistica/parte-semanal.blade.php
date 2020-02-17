@@ -221,7 +221,7 @@ $(document).ready(function() {
       var numero_de_identificacion = $("#numero_de_identificacion").val();
 
 
-
+      console.log(numero_de_identificacion)
       if ((desde && hasta) != '' && numero_de_identificacion === ''){
         numero_de_identificacion = 0;
          window.location.href = 'parte-semanal-descargar-pdf/'+desde+'/'+hasta+'/'+numero_de_identificacion;
